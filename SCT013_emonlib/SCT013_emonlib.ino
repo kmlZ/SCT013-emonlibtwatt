@@ -8,28 +8,32 @@ void setup()
 {  
   Serial.begin(9600);
   
-  emon1.current(1, 60.6);             // Current: input pin, calibration.
+  emon1.current(1, 55.0);             // Current: input pin, calibration.
 }
 
 void loop()
 {
-  double Irms = emon1.calcIrms(1480);  // Calculate Irms only 1480
+  double Irms = emon1.calcIrms(5588);  // Calculate Irms only 1480
 
  if (Irms >= 2.75)
  {
    volt = 220.0;
- } else if (Irms >= 2.9)
+ } 
+ if (Irms >= 2.9)
  {
    volt = 218.0;
- } else if (Irms >= 4.5)
+ } 
+ if (Irms >= 4.5)
  {
    volt = 217.0;
- } else if (Irms >= 5.5)
+ } 
+ if (Irms >= 5.5)
  {
    volt = 215.0;
- } else
+ }
+ if (Irms >= 7.0)
  {
-   volt = 225.0;
+  volt = 209.0; 
  }
  
  
